@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XCheckList"
+    targetNamespace="http://tempuri.org/XCheckList.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XCheckList.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="XCheckList" type="XCheckList"/>
+
+  <xs:complexType name="XCheckList">
+    <xs:annotation>
+      <xs:documentation>Чек-лист</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Header" type="XHeader">
+        <xs:annotation>
+          <xs:documentation>Заголовок</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MainItem" type="XItem">
+        <xs:annotation>
+          <xs:documentation>Главная задача</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Version" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Версия</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="XHeader">
+    <xs:annotation>
+      <xs:documentation>Заголовок</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="WorkItem" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификатор рабочего элемента</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="CreationDate" type="xs:dateTime" use="required">
+      <xs:annotation>
+        <xs:documentation>Дата и время создания</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="CreatedBy" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Автор</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="XItem">
+    <xs:annotation>
+      <xs:documentation>Задание</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Item" type="XItem" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Перечень задач</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Наименование</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Done" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Исполнена</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="TimeCost" type="xs:duration" use="required">
+      <xs:annotation>
+        <xs:documentation>Трудозатраты</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>
