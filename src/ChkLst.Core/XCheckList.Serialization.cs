@@ -17,14 +17,19 @@ namespace ChkLst.Core
         public override string ToString()
         {
             string result;
-
             using (var ms = new MemoryStream())
             {
                 Serialize(ms);
                 result = Encoding.UTF8.GetString(ms.ToArray());
             }
-
             return result;
+        }
+
+        public static XCheckList Deserialize(Stream stream)
+        {
+            Guard.ArgumentNotNull(stream, nameof(stream));
+            var result = Serializer.Deserialize(stream);
+            return (XCheckList)result;
         }
     }
 }

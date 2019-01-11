@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using System.Xml.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ChkLst.Core.Tests
@@ -7,9 +10,24 @@ namespace ChkLst.Core.Tests
     public partial class XCheckListTests
     {
         [TestMethod]
-        public void TestCheckListSerialization()
+        public void XCheckList_SerializationTest()
         {
+            var actual = new XCheckList();
+            actual.Header.WorkItem = "111";
+            actual.MainItem.Name = "task";
+            actual.MainItem.Item.Add(new XItem() { Name = "subtask" });
 
+            XCheckList expected;
+            using (var ms = new MemoryStream())
+            {
+                actual.Serialize(ms);
+                ms.Position = 0L;
+                expected = XCheckList.Deserialize(ms);
+            }
+
+            Assert.AreEqual(expected.Header.WorkItem, "111");
+            Assert.AreEqual(expected.MainItem.Name, "task");
+            Assert.AreEqual(expected.MainItem.Item[0].Name, "subtask");
         }
     }
 }
