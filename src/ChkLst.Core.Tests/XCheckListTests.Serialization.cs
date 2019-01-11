@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
-using System.Text;
-using System.Xml.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ChkLst.Core.Tests
 {
@@ -15,6 +13,7 @@ namespace ChkLst.Core.Tests
             var actual = new XCheckList();
             actual.Header.WorkItem = "111";
             actual.MainItem.Name = "task";
+            actual.MainItem.TimeCostDuration = TimeSpan.FromMinutes(1);
             actual.MainItem.Item.Add(new XItem() { Name = "subtask" });
 
             XCheckList expected;
