@@ -23,9 +23,9 @@ namespace ChkLst.Core
     public partial class XCheckList
     {
 
-        private XHeader headerField;
+        private XCheckListHeader headerField;
 
-        private XItem mainItemField;
+        private XCheckItem rootField;
 
         private string versionField;
 
@@ -34,15 +34,15 @@ namespace ChkLst.Core
         /// </summary>
         public XCheckList()
         {
-            this.mainItemField = new XItem();
-            this.headerField = new XHeader();
+            this.rootField = new XCheckItem();
+            this.headerField = new XCheckListHeader();
         }
 
         /// <summary>
         /// Заголовок
         /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public virtual XHeader Header
+        public virtual XCheckListHeader Header
         {
             get
             {
@@ -58,15 +58,15 @@ namespace ChkLst.Core
         /// Главная задача
         /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
-        public virtual XItem MainItem
+        public virtual XCheckItem Root
         {
             get
             {
-                return this.mainItemField;
+                return this.rootField;
             }
             set
             {
-                this.mainItemField = value;
+                this.rootField = value;
             }
         }
 
@@ -97,12 +97,15 @@ namespace ChkLst.Core
         #endregion
     }
 
+    /// <summary>
+    /// Заголовок
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://tempuri.org/XCheckList.xsd")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://tempuri.org/XCheckList.xsd", IsNullable = true)]
-    public partial class XHeader
+    public partial class XCheckListHeader
     {
 
         private string workItemField;
@@ -111,6 +114,9 @@ namespace ChkLst.Core
 
         private string createdByField;
 
+        /// <summary>
+        /// Идентификатор рабочего элемента
+        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual string WorkItem
         {
@@ -124,6 +130,9 @@ namespace ChkLst.Core
             }
         }
 
+        /// <summary>
+        /// Дата и время создания
+        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual System.DateTime CreationDate
         {
@@ -137,6 +146,9 @@ namespace ChkLst.Core
             }
         }
 
+        /// <summary>
+        /// Автор
+        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual string CreatedBy
         {
@@ -152,11 +164,11 @@ namespace ChkLst.Core
 
         #region Clone method
         /// <summary>
-        /// Create a clone of this XHeader object
+        /// Create a clone of this XCheckListHeader object
         /// </summary>
-        public virtual XHeader Clone()
+        public virtual XCheckListHeader Clone()
         {
-            return ((XHeader)(this.MemberwiseClone()));
+            return ((XCheckListHeader)(this.MemberwiseClone()));
         }
         #endregion
     }
@@ -166,10 +178,10 @@ namespace ChkLst.Core
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://tempuri.org/XCheckList.xsd")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://tempuri.org/XCheckList.xsd", IsNullable = true)]
-    public partial class XItem
+    public partial class XCheckItem
     {
 
-        private List<XItem> itemField;
+        private List<XCheckItem> itemField;
 
         private string nameField;
 
@@ -178,15 +190,15 @@ namespace ChkLst.Core
         private string timeCostField;
 
         /// <summary>
-        /// XItem class constructor
+        /// XCheckItem class constructor
         /// </summary>
-        public XItem()
+        public XCheckItem()
         {
-            this.itemField = new List<XItem>();
+            this.itemField = new List<XCheckItem>();
         }
 
         [System.Xml.Serialization.XmlElementAttribute("Item", Order = 0)]
-        public virtual List<XItem> Item
+        public virtual List<XCheckItem> Item
         {
             get
             {
@@ -239,11 +251,11 @@ namespace ChkLst.Core
 
         #region Clone method
         /// <summary>
-        /// Create a clone of this XItem object
+        /// Create a clone of this XCheckItem object
         /// </summary>
-        public virtual XItem Clone()
+        public virtual XCheckItem Clone()
         {
-            return ((XItem)(this.MemberwiseClone()));
+            return ((XCheckItem)(this.MemberwiseClone()));
         }
         #endregion
     }

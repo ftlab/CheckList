@@ -12,9 +12,8 @@ namespace ChkLst.Core.Tests
         {
             var actual = new XCheckList();
             actual.Header.WorkItem = "111";
-            actual.MainItem.Name = "task";
-            actual.MainItem.TimeCostDuration = TimeSpan.FromMinutes(1);
-            actual.MainItem.Item.Add(new XItem() { Name = "subtask" });
+            actual.Root.Name = "task";
+            actual.Root.Item.Add(new XCheckItem() { Name = "subtask" });
 
             XCheckList expected;
             using (var ms = new MemoryStream())
@@ -25,8 +24,8 @@ namespace ChkLst.Core.Tests
             }
 
             Assert.AreEqual(expected.Header.WorkItem, "111");
-            Assert.AreEqual(expected.MainItem.Name, "task");
-            Assert.AreEqual(expected.MainItem.Item[0].Name, "subtask");
+            Assert.AreEqual(expected.Root.Name, "task");
+            Assert.AreEqual(expected.Root.Item[0].Name, "subtask");
         }
     }
 }

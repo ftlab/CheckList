@@ -12,12 +12,12 @@
       <xs:documentation>Чек-лист</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Header" type="XHeader">
+      <xs:element name="Header" type="XCheckListHeader">
         <xs:annotation>
           <xs:documentation>Заголовок</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="MainItem" type="XItem">
+      <xs:element name="Root" type="XCheckItem">
         <xs:annotation>
           <xs:documentation>Главная задача</xs:documentation>
         </xs:annotation>
@@ -30,7 +30,7 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="XHeader">
+  <xs:complexType name="XCheckListHeader">
     <xs:annotation>
       <xs:documentation>Заголовок</xs:documentation>
     </xs:annotation>
@@ -51,12 +51,12 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="XItem">
+  <xs:complexType name="XCheckItem">
     <xs:annotation>
       <xs:documentation>Задание</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Item" type="XItem" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Item" type="XCheckItem" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Перечень задач</xs:documentation>
         </xs:annotation>
