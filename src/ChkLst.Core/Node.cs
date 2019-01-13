@@ -17,7 +17,7 @@ namespace ChkLst.Core
 
         public int Insert(int index, T node)
         {
-            if (index > 0 || index > Count) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0 || index > Count) throw new ArgumentOutOfRangeException(nameof(index));
             Guard.ArgumentNotNull(node, nameof(node));
             Guard.MustBeNull(node.Parent, nameof(node.Parent), "Parent must be null");
 
