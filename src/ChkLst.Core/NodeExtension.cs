@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace ChkLst.Core
 {
@@ -68,6 +69,29 @@ namespace ChkLst.Core
             parent.Remove(node);
 
             return parent;
+        }
+
+        public static T GetRoot<T>(this T node)
+            where T : INode<T>
+        {
+            T root = node;
+            T current = node;
+            while (current != null)
+            {
+                root = current;
+                current = current.GetParent();
+            }
+            return root;
+        }
+
+        public static int GetPosition<T>(this T node)
+            where T: INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+
+            int pos = -1;
+
+            T = 
         }
     }
 }
