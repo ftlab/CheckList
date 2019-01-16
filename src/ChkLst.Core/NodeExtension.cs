@@ -119,48 +119,65 @@ namespace ChkLst.Core
             return pos;
         }
 
-        public static T GetNodeByPosition<T>(this T node, int position)
-            where T : INode<T>
-        {
-            Guard.ArgumentNotNull(node, nameof(node));
-
-            T result = default(T);
-            node.Visit(n =>
-            {
-                position--;
-
-                if (position == 0)
-                    result = n;
-            });
-
-            return result;
-        }
-
-        public static void InsertAtPosition<T>(this T node, int position, T newNode, bool before)
+        public static void AddAbove<T>(this T node, T newNode)
             where T : INode<T>
         {
             Guard.ArgumentNotNull(node, nameof(node));
             Guard.ArgumentNotNull(newNode, nameof(newNode));
 
+            var position = node.GetPosition();
+            var root = node.GetRoot();
             T last = default(T);
             T prev = default(T);
 
-            node.Visit(n =>
-            {
-                position--;
+            position--;
 
+            root.Visit(n =>
+            {
                 last = n;
                 if (position == 0)
                     prev = n;
+
+                position--;
             });
 
             if (prev == null)
                 prev = last;
 
-            if (before)
-                prev.AddBeforeSelf(newNode);
+            if (prev.IsRoot)
+                prev.Add(newNode);
             else
                 prev.AddAfterSelf(newNode);
+        }
+
+        public static void AddBelow<T>(this T node, T newNode)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+            Guard.ArgumentNotNull(newNode, nameof(newNode));
+
+            var position = node.GetPosition();
+            var root = node.GetRoot();
+            T last = default(T);
+            T prev = default(T);
+
+            position++;
+
+            root.Visit(n =>
+            {
+                last = n;
+                if (position == 0)
+                    prev = n;
+                position--;
+            });
+
+            if (prev == null)
+                prev = last;
+
+            if (prev.IsRoot)
+                prev.Add(newNode);
+            else
+                prev.AddBeforeSelf(newNode);
         }
     }
 }

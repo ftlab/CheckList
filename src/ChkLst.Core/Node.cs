@@ -15,6 +15,8 @@ namespace ChkLst.Core
 
         public int Count => Nodes.Count;
 
+        public bool IsRoot => Parent == null;
+
         public int Insert(int index, T node)
         {
             if (index < 0 || index > Count) throw new ArgumentOutOfRangeException(nameof(index));

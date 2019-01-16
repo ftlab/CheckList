@@ -10,6 +10,8 @@ namespace ChkLst.Core
 
         int INode<T>.Count => Count;
 
+        bool INode<T>.IsRoot => IsRoot;
+
         T INode<T>.GetParent() => Parent;
 
         int INode<T>.Insert(int index, T item) => Insert(index, item);

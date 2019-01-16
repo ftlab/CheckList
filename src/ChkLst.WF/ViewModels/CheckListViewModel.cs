@@ -9,6 +9,8 @@ namespace ChkLst.WF.ViewModels
 
         private DxCheckList _dxCheckList;
 
+        private CheckItem _focusedItem;
+
         public CheckListViewModel(CheckList checkList)
         {
             CheckList = Guard.ArgumentNotNull(checkList, nameof(checkList));
@@ -41,6 +43,32 @@ namespace ChkLst.WF.ViewModels
 
                 return _dxCheckList;
             }
+        }
+
+        public CheckItem FocusedItem
+        {
+            get { return _focusedItem; }
+            set { SetProperty(ref _focusedItem, value, () => FocusedItem); }
+        }
+
+        public void AddAbove()
+        {
+            var node = FocusedItem ?? CheckList.Root;
+            var newItem = new CheckItem() { Name = "<New Task>" };
+            node.AddAbove(newItem);
+
+            RaisePropertyChanged(() => DxCheckList);
+            FocusedItem = newItem;
+        }
+
+        public void AddBelow()
+        {
+            var node = FocusedItem ?? CheckList.Root;
+            var newItem = new CheckItem() { Name = "<New Task>" };
+            node.AddBelow(newItem);
+
+            RaisePropertyChanged(() => DxCheckList);
+            FocusedItem = newItem;
         }
     }
 }

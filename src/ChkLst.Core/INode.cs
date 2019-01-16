@@ -12,6 +12,8 @@ namespace ChkLst.Core
         , IEnumerable
         where T : INode<T>
     {
+        bool IsRoot { get; }
+
         new int Count { get; }
 
         new int Insert(int index, T item);

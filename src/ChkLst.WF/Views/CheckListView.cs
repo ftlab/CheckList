@@ -1,4 +1,6 @@
-﻿using ChkLst.WF.ViewModels;
+﻿using ChkLst.Core;
+using ChkLst.WF.ViewModels;
+using DevExpress.XtraTreeList;
 using System;
 
 namespace ChkLst.WF.Views
@@ -26,6 +28,14 @@ namespace ChkLst.WF.Views
 
             fluentAPI.SetBinding(_checkListTree, t => t.DataSource, p => p.DxCheckList);
             fluentAPI.SetTrigger(p => p.DxCheckList, d => _checkListTree.RefreshDataSource());
+            fluentAPI.WithEvent<TreeList, FocusedNodeChangedEventArgs>(
+                _checkListTree, nameof(_checkListTree.FocusedNodeChanged))
+                .SetBinding(vm => vm.FocusedItem
+                    , arg => arg.Node.TreeList.GetDataRecordByNode(arg.Node) as CheckItem
+                    , (v, m) => { v.FocusedNode = v.FindNode(n => n.TreeList.GetDataRecordByNode(n) == m); });
+
+            fluentAPI.BindCommand(_addAboveBtn, p => p.AddAbove());
+            fluentAPI.BindCommand(_addBelowBtn, p => p.AddBelow());
         }
     }
 }
