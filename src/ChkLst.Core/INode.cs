@@ -14,6 +14,8 @@ namespace ChkLst.Core
     {
         new int Count { get; }
 
+        new int Insert(int index, T item);
+
         new T this[int index] { get; }
 
         T GetParent();

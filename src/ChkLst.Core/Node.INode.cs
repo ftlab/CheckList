@@ -11,5 +11,7 @@ namespace ChkLst.Core
         int INode<T>.Count => Count;
 
         T INode<T>.GetParent() => Parent;
+
+        int INode<T>.Insert(int index, T item) => Insert(index, item);
     }
 }

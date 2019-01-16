@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace ChkLst.Core
@@ -74,8 +76,8 @@ namespace ChkLst.Core
         public static T GetRoot<T>(this T node)
             where T : INode<T>
         {
-            T root = node;
-            T current = node;
+            var root = node;
+            var current = node;
             while (current != null)
             {
                 root = current;
@@ -84,14 +86,81 @@ namespace ChkLst.Core
             return root;
         }
 
+        public static void Visit<T>(this T node, Action<T> observer)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+            Guard.ArgumentNotNull(observer, nameof(observer));
+
+            observer(node);
+            foreach (var child in node)
+                child.Visit(observer);
+        }
+
         public static int GetPosition<T>(this T node)
-            where T: INode<T>
+            where T : INode<T>
         {
             Guard.ArgumentNotNull(node, nameof(node));
 
-            int pos = -1;
+            var root = node.GetRoot();
 
-            T = 
+            int pos = -1;
+            bool stop = false;
+            root.Visit(n =>
+            {
+                if (stop == false)
+                {
+                    pos++;
+                    if (node.Equals(n))
+                        stop = true;
+                }
+            });
+
+            return pos;
+        }
+
+        public static T GetNodeByPosition<T>(this T node, int position)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+
+            T result = default(T);
+            node.Visit(n =>
+            {
+                position--;
+
+                if (position == 0)
+                    result = n;
+            });
+
+            return result;
+        }
+
+        public static void InsertAtPosition<T>(this T node, int position, T newNode, bool before)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+            Guard.ArgumentNotNull(newNode, nameof(newNode));
+
+            T last = default(T);
+            T prev = default(T);
+
+            node.Visit(n =>
+            {
+                position--;
+
+                last = n;
+                if (position == 0)
+                    prev = n;
+            });
+
+            if (prev == null)
+                prev = last;
+
+            if (before)
+                prev.AddBeforeSelf(newNode);
+            else
+                prev.AddAfterSelf(newNode);
         }
     }
 }
