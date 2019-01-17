@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChkLst.WF", "ChkLst.WF\ChkL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICSharpCode.TreeView", "SharpTreeView\ICSharpCode.TreeView.csproj", "{CCFFD25B-854F-4E46-9907-6FC697A7F78F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChkLst.WPF", "ChkLst.WPF\ChkLst.WPF.csproj", "{71A3144A-6143-42D0-A1B4-FA33B275A04F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CCFFD25B-854F-4E46-9907-6FC697A7F78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCFFD25B-854F-4E46-9907-6FC697A7F78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCFFD25B-854F-4E46-9907-6FC697A7F78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A3144A-6143-42D0-A1B4-FA33B275A04F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A3144A-6143-42D0-A1B4-FA33B275A04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A3144A-6143-42D0-A1B4-FA33B275A04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A3144A-6143-42D0-A1B4-FA33B275A04F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
