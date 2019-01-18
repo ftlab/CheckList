@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8-todo-list-96.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -109,16 +112,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-insert-row-above-16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-insert-row-16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\add_below.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_above.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8-todo-list-96.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
