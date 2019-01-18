@@ -114,5 +114,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-insert-row-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_below.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_above.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

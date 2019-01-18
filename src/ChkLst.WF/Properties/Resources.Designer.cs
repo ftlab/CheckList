@@ -61,22 +61,22 @@ namespace ChkLst.WF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_insert_row_16 {
+        internal static DevExpress.Utils.Svg.SvgImage add_above {
             get {
-                object obj = ResourceManager.GetObject("icons8_insert_row_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("add_above", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_insert_row_above_16 {
+        internal static DevExpress.Utils.Svg.SvgImage add_below {
             get {
-                object obj = ResourceManager.GetObject("icons8_insert_row_above_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("add_below", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
     }

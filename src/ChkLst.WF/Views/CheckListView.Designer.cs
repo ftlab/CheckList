@@ -102,14 +102,14 @@
             // 
             this._addBelowBtn.Caption = "Добавить ниже";
             this._addBelowBtn.Id = 0;
-            this._addBelowBtn.ImageOptions.Image = global::ChkLst.WF.Properties.Resources.icons8_insert_row_16;
+            this._addBelowBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.add_below;
             this._addBelowBtn.Name = "_addBelowBtn";
             // 
             // _addAboveBtn
             // 
             this._addAboveBtn.Caption = "Добавить выше";
             this._addAboveBtn.Id = 1;
-            this._addAboveBtn.ImageOptions.Image = global::ChkLst.WF.Properties.Resources.icons8_insert_row_above_16;
+            this._addAboveBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.add_above;
             this._addAboveBtn.Name = "_addAboveBtn";
             // 
             // _statusBar
