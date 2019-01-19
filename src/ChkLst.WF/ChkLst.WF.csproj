@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8-todo-list-96.ico" />
+    <None Include="Resources\right-indent.svg" />
+    <None Include="Resources\left-indent.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

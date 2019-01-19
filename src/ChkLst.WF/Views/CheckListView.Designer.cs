@@ -35,6 +35,8 @@
             this._toolBar = new DevExpress.XtraBars.Bar();
             this._addBelowBtn = new DevExpress.XtraBars.BarButtonItem();
             this._addAboveBtn = new DevExpress.XtraBars.BarButtonItem();
+            this._outdentBtn = new DevExpress.XtraBars.BarButtonItem();
+            this._indentBtn = new DevExpress.XtraBars.BarButtonItem();
             this._statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -72,9 +74,11 @@
             this._barManager.Form = this;
             this._barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this._addBelowBtn,
-            this._addAboveBtn});
+            this._addAboveBtn,
+            this._outdentBtn,
+            this._indentBtn});
             this._barManager.MainMenu = this._menuBar;
-            this._barManager.MaxItemId = 2;
+            this._barManager.MaxItemId = 4;
             this._barManager.StatusBar = this._statusBar;
             // 
             // _menuBar
@@ -95,22 +99,38 @@
             this._toolBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this._toolBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this._addBelowBtn),
-            new DevExpress.XtraBars.LinkPersistInfo(this._addAboveBtn)});
+            new DevExpress.XtraBars.LinkPersistInfo(this._addAboveBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this._outdentBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this._indentBtn)});
             this._toolBar.Text = "Tools";
             // 
             // _addBelowBtn
             // 
-            this._addBelowBtn.Caption = "Добавить ниже";
+            this._addBelowBtn.Caption = "Add below";
             this._addBelowBtn.Id = 0;
             this._addBelowBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.add_below;
             this._addBelowBtn.Name = "_addBelowBtn";
             // 
             // _addAboveBtn
             // 
-            this._addAboveBtn.Caption = "Добавить выше";
+            this._addAboveBtn.Caption = "Add above";
             this._addAboveBtn.Id = 1;
             this._addAboveBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.add_above;
             this._addAboveBtn.Name = "_addAboveBtn";
+            // 
+            // _outdentBtn
+            // 
+            this._outdentBtn.Caption = "Outdent";
+            this._outdentBtn.Id = 2;
+            this._outdentBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.left_indent;
+            this._outdentBtn.Name = "_outdentBtn";
+            // 
+            // _indentBtn
+            // 
+            this._indentBtn.Caption = "Indent";
+            this._indentBtn.Id = 3;
+            this._indentBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.right_indent;
+            this._indentBtn.Name = "_indentBtn";
             // 
             // _statusBar
             // 
@@ -174,6 +194,7 @@
             this._checkListTree.DataSource = null;
             this._checkListTree.Location = new System.Drawing.Point(12, 12);
             this._checkListTree.Name = "_checkListTree";
+            this._checkListTree.OptionsView.ShowCheckBoxes = true;
             this._checkListTree.Size = new System.Drawing.Size(652, 297);
             this._checkListTree.TabIndex = 4;
             // 
@@ -244,5 +265,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn _nameColumn;
         private DevExpress.XtraBars.BarButtonItem _addBelowBtn;
         private DevExpress.XtraBars.BarButtonItem _addAboveBtn;
+        private DevExpress.XtraBars.BarButtonItem _outdentBtn;
+        private DevExpress.XtraBars.BarButtonItem _indentBtn;
     }
 }

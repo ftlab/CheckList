@@ -1,5 +1,6 @@
 ﻿using ChkLst.Core;
 using DevExpress.Mvvm;
+using System.Linq;
 
 namespace ChkLst.WF.ViewModels
 {
@@ -29,6 +30,9 @@ namespace ChkLst.WF.ViewModels
 
                 _dxCheckList = null;
                 RaisePropertyChanged(() => DxCheckList);
+
+                if (CheckList != null && CheckList.Root != null)
+                    FocusedItem = CheckList.Root.FirstOrDefault();
             }
         }
 
@@ -69,6 +73,28 @@ namespace ChkLst.WF.ViewModels
 
             RaisePropertyChanged(() => DxCheckList);
             FocusedItem = newItem;
+        }
+
+        public void Outdent()
+        {
+            var item = FocusedItem;
+            if (item != null)
+            {
+                item.Outdent();
+
+                RaisePropertyChanged(() => DxCheckList);
+            }
+        }
+
+        public void Indent()
+        {
+            var item = FocusedItem;
+            if (item != null)
+            {
+                item.Indent();
+
+                RaisePropertyChanged(() => DxCheckList);
+            }
         }
     }
 }

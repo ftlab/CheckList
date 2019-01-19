@@ -31,11 +31,13 @@ namespace ChkLst.WF.Views
             fluentAPI.WithEvent<TreeList, FocusedNodeChangedEventArgs>(
                 _checkListTree, nameof(_checkListTree.FocusedNodeChanged))
                 .SetBinding(vm => vm.FocusedItem
-                    , arg => arg.Node.TreeList.GetDataRecordByNode(arg.Node) as CheckItem
+                    , arg => arg.Node?.TreeList.GetDataRecordByNode(arg.Node) as CheckItem
                     , (v, m) => { v.FocusedNode = v.FindNode(n => n.TreeList.GetDataRecordByNode(n) == m); });
 
             fluentAPI.BindCommand(_addAboveBtn, p => p.AddAbove());
             fluentAPI.BindCommand(_addBelowBtn, p => p.AddBelow());
+            fluentAPI.BindCommand(_outdentBtn, p => p.Outdent());
+            fluentAPI.BindCommand(_indentBtn, p => p.Indent());
         }
     }
 }

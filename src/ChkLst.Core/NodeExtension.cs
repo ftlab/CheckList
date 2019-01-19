@@ -179,5 +179,42 @@ namespace ChkLst.Core
             else
                 prev.AddBeforeSelf(newNode);
         }
+
+        public static bool Indent<T>(this T node)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+
+            var result = false;
+
+            var prev = node.GetPrevious();
+            if (prev != null)
+            {
+                node.Delete();
+                prev.Add(node);
+                result = true;
+            }
+
+            return result;
+        }
+
+        public static bool Outdent<T>(this T node)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+
+            var result = false;
+
+            var parent = node.GetParent();
+            var root = node.GetRoot();
+            if (parent != null && parent.NotEquals(root))
+            {
+                node.Delete();
+                parent.AddAfterSelf(node);
+                result = true;
+            }
+
+            return result;
+        }
     }
 }

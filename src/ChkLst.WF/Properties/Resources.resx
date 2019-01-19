@@ -118,10 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="left-indent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left-indent.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="add_below" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_below.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="add_above" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_above.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="right-indent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\right-indent.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>
