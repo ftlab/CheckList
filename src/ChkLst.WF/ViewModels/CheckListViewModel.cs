@@ -126,5 +126,35 @@ namespace ChkLst.WF.ViewModels
                 }
             }
         }
+
+        public void Delete()
+        {
+            var item = FocusedItem;
+            if (item != null)
+            {
+                var result = GetService<IMessageBoxService>()
+                    .ShowMessage(messageBoxText: "Delete task?"
+                                , caption: ""
+                                , button: MessageButton.YesNo
+                                , icon: MessageIcon.Question
+                                , defaultResult: MessageResult.Yes);
+
+                if (result == MessageResult.Yes)
+                {
+                    var next = item.GetNext();
+                    if (next == null)
+                        next = item.GetPrevious();
+
+                    item.Delete();
+
+                    RaisePropertyChanged(() => DxCheckList);
+                    if (next != null)
+                        FocusedItem = next;
+                }
+            }
+            else
+            {
+            }
+        }
     }
 }

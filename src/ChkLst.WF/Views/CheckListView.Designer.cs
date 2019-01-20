@@ -39,6 +39,7 @@
             this._indentBtn = new DevExpress.XtraBars.BarButtonItem();
             this._placeAboveBtn = new DevExpress.XtraBars.BarButtonItem();
             this._placeBelowBtn = new DevExpress.XtraBars.BarButtonItem();
+            this._deleteBtn = new DevExpress.XtraBars.BarButtonItem();
             this._statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -80,9 +81,10 @@
             this._outdentBtn,
             this._indentBtn,
             this._placeAboveBtn,
-            this._placeBelowBtn});
+            this._placeBelowBtn,
+            this._deleteBtn});
             this._barManager.MainMenu = this._menuBar;
-            this._barManager.MaxItemId = 6;
+            this._barManager.MaxItemId = 7;
             this._barManager.StatusBar = this._statusBar;
             // 
             // _menuBar
@@ -107,7 +109,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this._outdentBtn),
             new DevExpress.XtraBars.LinkPersistInfo(this._indentBtn),
             new DevExpress.XtraBars.LinkPersistInfo(this._placeAboveBtn),
-            new DevExpress.XtraBars.LinkPersistInfo(this._placeBelowBtn)});
+            new DevExpress.XtraBars.LinkPersistInfo(this._placeBelowBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this._deleteBtn)});
             this._toolBar.Text = "Tools";
             // 
             // _addBelowBtn
@@ -140,17 +143,24 @@
             // 
             // _placeAboveBtn
             // 
-            this._placeAboveBtn.Caption = "place above";
+            this._placeAboveBtn.Caption = "Place above";
             this._placeAboveBtn.Id = 4;
             this._placeAboveBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.place_above;
             this._placeAboveBtn.Name = "_placeAboveBtn";
             // 
             // _placeBelowBtn
             // 
-            this._placeBelowBtn.Caption = "place below";
+            this._placeBelowBtn.Caption = "Place below";
             this._placeBelowBtn.Id = 5;
             this._placeBelowBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.place_below;
             this._placeBelowBtn.Name = "_placeBelowBtn";
+            // 
+            // _deleteBtn
+            // 
+            this._deleteBtn.Caption = "Delete";
+            this._deleteBtn.Id = 6;
+            this._deleteBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.delete;
+            this._deleteBtn.Name = "_deleteBtn";
             // 
             // _statusBar
             // 
@@ -289,5 +299,6 @@
         private DevExpress.XtraBars.BarButtonItem _indentBtn;
         private DevExpress.XtraBars.BarButtonItem _placeAboveBtn;
         private DevExpress.XtraBars.BarButtonItem _placeBelowBtn;
+        private DevExpress.XtraBars.BarButtonItem _deleteBtn;
     }
 }
