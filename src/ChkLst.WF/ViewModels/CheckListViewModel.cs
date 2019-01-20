@@ -80,9 +80,11 @@ namespace ChkLst.WF.ViewModels
             var item = FocusedItem;
             if (item != null)
             {
-                item.Outdent();
-
-                RaisePropertyChanged(() => DxCheckList);
+                if (item.Outdent())
+                {
+                    RaisePropertyChanged(() => DxCheckList);
+                    FocusedItem = item;
+                }
             }
         }
 
@@ -91,9 +93,37 @@ namespace ChkLst.WF.ViewModels
             var item = FocusedItem;
             if (item != null)
             {
-                item.Indent();
+                if (item.Indent())
+                {
+                    RaisePropertyChanged(() => DxCheckList);
+                    FocusedItem = item;
+                }
+            }
+        }
 
-                RaisePropertyChanged(() => DxCheckList);
+        public void PlaceAbove()
+        {
+            var item = FocusedItem;
+            if (item != null)
+            {
+                if (item.PlaceAbove())
+                {
+                    RaisePropertyChanged(() => DxCheckList);
+                    FocusedItem = item;
+                }
+            }
+        }
+
+        public void PlaceBelow()
+        {
+            var item = FocusedItem;
+            if (item != null)
+            {
+                if (item.PlaceBelow())
+                {
+                    RaisePropertyChanged(() => DxCheckList);
+                    FocusedItem = item;
+                }
             }
         }
     }

@@ -216,5 +216,41 @@ namespace ChkLst.Core
 
             return result;
         }
+
+        public static bool PlaceAbove<T>(this T node)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+
+            var result = false;
+
+            var prev = node.GetPrevious();
+            if (prev != null)
+            {
+                node.Delete();
+                prev.AddBeforeSelf(node);
+                result = true;
+            }
+
+            return result;
+        }
+
+        public static bool PlaceBelow<T>(this T node)
+            where T : INode<T>
+        {
+            Guard.ArgumentNotNull(node, nameof(node));
+
+            var result = false;
+
+            var next = node.GetNext();
+            if (next != null)
+            {
+                node.Delete();
+                next.AddAfterSelf(node);
+                result = true;
+            }
+
+            return result;
+        }
     }
 }
