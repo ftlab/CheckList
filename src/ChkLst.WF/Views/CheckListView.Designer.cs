@@ -52,14 +52,18 @@
             this._checkListTree = new DevExpress.XtraTreeList.TreeList();
             this._nameColumn = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this._layoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this._checkListLayout = new DevExpress.XtraLayout.LayoutControlItem();
+            this._checkListItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this._search = new DevExpress.XtraEditors.SearchControl();
+            this._searchItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this._mvvmCtx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._layout)).BeginInit();
             this._layout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._checkListTree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._layoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._checkListLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._checkListItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._search.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._searchItem)).BeginInit();
             this.SuspendLayout();
             // 
             // _mvvmCtx
@@ -239,6 +243,7 @@
             // 
             // _layout
             // 
+            this._layout.Controls.Add(this._search);
             this._layout.Controls.Add(this._checkListTree);
             this._layout.Dock = System.Windows.Forms.DockStyle.Fill;
             this._layout.Location = new System.Drawing.Point(0, 53);
@@ -253,10 +258,10 @@
             this._checkListTree.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this._nameColumn});
             this._checkListTree.DataSource = null;
-            this._checkListTree.Location = new System.Drawing.Point(12, 12);
+            this._checkListTree.Location = new System.Drawing.Point(12, 36);
             this._checkListTree.Name = "_checkListTree";
             this._checkListTree.OptionsView.ShowCheckBoxes = true;
-            this._checkListTree.Size = new System.Drawing.Size(652, 295);
+            this._checkListTree.Size = new System.Drawing.Size(652, 271);
             this._checkListTree.TabIndex = 4;
             // 
             // _nameColumn
@@ -272,19 +277,44 @@
             this._layoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this._layoutGroup.GroupBordersVisible = false;
             this._layoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this._checkListLayout});
+            this._checkListItem,
+            this._searchItem});
             this._layoutGroup.Name = "_layoutGroup";
             this._layoutGroup.Size = new System.Drawing.Size(676, 319);
             this._layoutGroup.TextVisible = false;
             // 
-            // _checkListLayout
+            // _checkListItem
             // 
-            this._checkListLayout.Control = this._checkListTree;
-            this._checkListLayout.Location = new System.Drawing.Point(0, 0);
-            this._checkListLayout.Name = "_checkListLayout";
-            this._checkListLayout.Size = new System.Drawing.Size(656, 299);
-            this._checkListLayout.TextSize = new System.Drawing.Size(0, 0);
-            this._checkListLayout.TextVisible = false;
+            this._checkListItem.Control = this._checkListTree;
+            this._checkListItem.Location = new System.Drawing.Point(0, 24);
+            this._checkListItem.Name = "_checkListItem";
+            this._checkListItem.Size = new System.Drawing.Size(656, 275);
+            this._checkListItem.TextSize = new System.Drawing.Size(0, 0);
+            this._checkListItem.TextVisible = false;
+            // 
+            // _search
+            // 
+            this._search.Client = this._checkListTree;
+            this._search.Location = new System.Drawing.Point(12, 12);
+            this._search.MenuManager = this._barManager;
+            this._search.Name = "_search";
+            this._search.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this._search.Properties.Client = this._checkListTree;
+            this._search.Size = new System.Drawing.Size(652, 20);
+            this._search.StyleController = this._layout;
+            this._search.TabIndex = 6;
+            // 
+            // _searchItem
+            // 
+            this._searchItem.Control = this._search;
+            this._searchItem.Location = new System.Drawing.Point(0, 0);
+            this._searchItem.Name = "_searchItem";
+            this._searchItem.Size = new System.Drawing.Size(656, 24);
+            this._searchItem.Text = "search:";
+            this._searchItem.TextSize = new System.Drawing.Size(0, 0);
+            this._searchItem.TextVisible = false;
             // 
             // CheckListView
             // 
@@ -303,7 +333,9 @@
             this._layout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._checkListTree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._layoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._checkListLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._checkListItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._search.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._searchItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,7 +354,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraTreeList.TreeList _checkListTree;
-        private DevExpress.XtraLayout.LayoutControlItem _checkListLayout;
+        private DevExpress.XtraLayout.LayoutControlItem _checkListItem;
         private DevExpress.XtraTreeList.Columns.TreeListColumn _nameColumn;
         private DevExpress.XtraBars.BarButtonItem _addBelowBtn;
         private DevExpress.XtraBars.BarButtonItem _addAboveBtn;
@@ -334,5 +366,7 @@
         private DevExpress.XtraBars.BarLinkContainerItem _fileCat;
         private DevExpress.XtraBars.BarButtonItem _openBtn;
         private DevExpress.XtraBars.BarButtonItem _saveAsBtn;
+        private DevExpress.XtraEditors.SearchControl _search;
+        private DevExpress.XtraLayout.LayoutControlItem _searchItem;
     }
 }
