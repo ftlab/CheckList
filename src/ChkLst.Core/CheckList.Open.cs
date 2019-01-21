@@ -8,6 +8,16 @@ namespace ChkLst.Core
 {
     public partial class CheckList
     {
+        public void Open(FileInfo file)
+        {
+            Guard.ArgumentNotNull(file, nameof(file));
+
+            using (var fs = new FileStream(file.FullName, FileMode.Open, FileAccess.Read))
+            {
+                Open(fs);
+            }
+        }
+
         public void Open(XCheckList data)
         {
             Guard.ArgumentNotNull(data, nameof(data));

@@ -32,6 +32,9 @@
             this._mvvmCtx = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this._barManager = new DevExpress.XtraBars.BarManager(this.components);
             this._menuBar = new DevExpress.XtraBars.Bar();
+            this._fileCat = new DevExpress.XtraBars.BarLinkContainerItem();
+            this._openBtn = new DevExpress.XtraBars.BarButtonItem();
+            this._saveAsBtn = new DevExpress.XtraBars.BarButtonItem();
             this._toolBar = new DevExpress.XtraBars.Bar();
             this._addBelowBtn = new DevExpress.XtraBars.BarButtonItem();
             this._addAboveBtn = new DevExpress.XtraBars.BarButtonItem();
@@ -82,9 +85,12 @@
             this._indentBtn,
             this._placeAboveBtn,
             this._placeBelowBtn,
-            this._deleteBtn});
+            this._deleteBtn,
+            this._fileCat,
+            this._openBtn,
+            this._saveAsBtn});
             this._barManager.MainMenu = this._menuBar;
-            this._barManager.MaxItemId = 7;
+            this._barManager.MaxItemId = 10;
             this._barManager.StatusBar = this._statusBar;
             // 
             // _menuBar
@@ -93,9 +99,34 @@
             this._menuBar.DockCol = 0;
             this._menuBar.DockRow = 0;
             this._menuBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this._menuBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this._fileCat)});
             this._menuBar.OptionsBar.MultiLine = true;
             this._menuBar.OptionsBar.UseWholeRow = true;
             this._menuBar.Text = "MainMenu";
+            // 
+            // _fileCat
+            // 
+            this._fileCat.Caption = "File";
+            this._fileCat.Id = 7;
+            this._fileCat.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this._openBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this._saveAsBtn)});
+            this._fileCat.Name = "_fileCat";
+            // 
+            // _openBtn
+            // 
+            this._openBtn.Caption = "Open";
+            this._openBtn.Id = 8;
+            this._openBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.file;
+            this._openBtn.Name = "_openBtn";
+            // 
+            // _saveAsBtn
+            // 
+            this._saveAsBtn.Caption = "Save as...";
+            this._saveAsBtn.Id = 9;
+            this._saveAsBtn.ImageOptions.SvgImage = global::ChkLst.WF.Properties.Resources.save;
+            this._saveAsBtn.Name = "_saveAsBtn";
             // 
             // _toolBar
             // 
@@ -180,7 +211,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this._barManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(676, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(676, 53);
             // 
             // barDockControlBottom
             // 
@@ -194,26 +225,26 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 53);
             this.barDockControlLeft.Manager = this._barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 321);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 319);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(676, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(676, 53);
             this.barDockControlRight.Manager = this._barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 321);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 319);
             // 
             // _layout
             // 
             this._layout.Controls.Add(this._checkListTree);
             this._layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._layout.Location = new System.Drawing.Point(0, 51);
+            this._layout.Location = new System.Drawing.Point(0, 53);
             this._layout.Name = "_layout";
             this._layout.Root = this._layoutGroup;
-            this._layout.Size = new System.Drawing.Size(676, 321);
+            this._layout.Size = new System.Drawing.Size(676, 319);
             this._layout.TabIndex = 4;
             this._layout.Text = "layoutControl1";
             // 
@@ -225,7 +256,7 @@
             this._checkListTree.Location = new System.Drawing.Point(12, 12);
             this._checkListTree.Name = "_checkListTree";
             this._checkListTree.OptionsView.ShowCheckBoxes = true;
-            this._checkListTree.Size = new System.Drawing.Size(652, 297);
+            this._checkListTree.Size = new System.Drawing.Size(652, 295);
             this._checkListTree.TabIndex = 4;
             // 
             // _nameColumn
@@ -243,7 +274,7 @@
             this._layoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this._checkListLayout});
             this._layoutGroup.Name = "_layoutGroup";
-            this._layoutGroup.Size = new System.Drawing.Size(676, 321);
+            this._layoutGroup.Size = new System.Drawing.Size(676, 319);
             this._layoutGroup.TextVisible = false;
             // 
             // _checkListLayout
@@ -251,7 +282,7 @@
             this._checkListLayout.Control = this._checkListTree;
             this._checkListLayout.Location = new System.Drawing.Point(0, 0);
             this._checkListLayout.Name = "_checkListLayout";
-            this._checkListLayout.Size = new System.Drawing.Size(656, 301);
+            this._checkListLayout.Size = new System.Drawing.Size(656, 299);
             this._checkListLayout.TextSize = new System.Drawing.Size(0, 0);
             this._checkListLayout.TextVisible = false;
             // 
@@ -300,5 +331,8 @@
         private DevExpress.XtraBars.BarButtonItem _placeAboveBtn;
         private DevExpress.XtraBars.BarButtonItem _placeBelowBtn;
         private DevExpress.XtraBars.BarButtonItem _deleteBtn;
+        private DevExpress.XtraBars.BarLinkContainerItem _fileCat;
+        private DevExpress.XtraBars.BarButtonItem _openBtn;
+        private DevExpress.XtraBars.BarButtonItem _saveAsBtn;
     }
 }

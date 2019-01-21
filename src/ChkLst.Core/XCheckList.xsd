@@ -5,7 +5,7 @@
     xmlns="http://tempuri.org/XCheckList.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-  <xs:element name="XCheckList" type="XCheckList"/>
+  <xs:element name="CheckList" type="XCheckList"/>
 
   <xs:complexType name="XCheckList">
     <xs:annotation>

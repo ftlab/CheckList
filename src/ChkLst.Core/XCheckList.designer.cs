@@ -19,7 +19,7 @@ namespace ChkLst.Core
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://tempuri.org/XCheckList.xsd")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://tempuri.org/XCheckList.xsd", IsNullable = false)]
+    [System.Xml.Serialization.XmlRootAttribute("CheckList", Namespace = "http://tempuri.org/XCheckList.xsd", IsNullable = false)]
     public partial class XCheckList
     {
 
@@ -38,9 +38,6 @@ namespace ChkLst.Core
             this.headerField = new XCheckListHeader();
         }
 
-        /// <summary>
-        /// Заголовок
-        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public virtual XCheckListHeader Header
         {
@@ -54,9 +51,6 @@ namespace ChkLst.Core
             }
         }
 
-        /// <summary>
-        /// Главная задача
-        /// </summary>
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public virtual XCheckItem Root
         {
@@ -70,9 +64,6 @@ namespace ChkLst.Core
             }
         }
 
-        /// <summary>
-        /// Версия
-        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual string Version
         {
@@ -97,9 +88,6 @@ namespace ChkLst.Core
         #endregion
     }
 
-    /// <summary>
-    /// Заголовок
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -114,9 +102,6 @@ namespace ChkLst.Core
 
         private string createdByField;
 
-        /// <summary>
-        /// Идентификатор рабочего элемента
-        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual string WorkItem
         {
@@ -130,9 +115,6 @@ namespace ChkLst.Core
             }
         }
 
-        /// <summary>
-        /// Дата и время создания
-        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual System.DateTime CreationDate
         {
@@ -146,9 +128,6 @@ namespace ChkLst.Core
             }
         }
 
-        /// <summary>
-        /// Автор
-        /// </summary>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual string CreatedBy
         {

@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8-todo-list-96.ico" />
+    <None Include="Resources\save.svg" />
+    <None Include="Resources\file.svg" />
     <None Include="Resources\delete.svg" />
     <None Include="Resources\place_below.svg" />
     <None Include="Resources\place_above.svg" />

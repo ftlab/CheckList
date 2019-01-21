@@ -1,5 +1,7 @@
 ﻿using ChkLst.Core;
 using DevExpress.Mvvm;
+using System;
+using System.IO;
 using System.Linq;
 
 namespace ChkLst.WF.ViewModels
@@ -154,6 +156,38 @@ namespace ChkLst.WF.ViewModels
             }
             else
             {
+            }
+        }
+
+        public void Open()
+        {
+            var ofd = GetService<IOpenFileDialogService>();
+            ofd.Title = "Open checklist";
+            ofd.Filter = "xml file (*.clx)|*.clx";
+            var result = ofd.ShowDialog();
+            if (result)
+            {
+                CheckList.Open(new FileInfo(ofd.GetFullFileName()));
+
+                RaisePropertyChanged(() => DxCheckList);
+                FocusedItem = CheckList.Root.FirstOrDefault();
+            }
+        }
+
+        public void SaveAs()
+        {
+            var sfd = GetService<ISaveFileDialogService>();
+
+            sfd.DefaultFileName = $"checklist_{DateTime.Now.ToString("yyMMddHHmm")}.clx";
+            sfd.Title = "Save checklist";
+            sfd.DefaultExt = ".clx";
+            sfd.Filter = "xml file (*.clx)|*.clx";
+            var result = sfd.ShowDialog();
+            if (result)
+            {
+                CheckList.Save(new FileInfo(sfd.GetFullFileName()));
+
+                GetService<IMessageBoxService>().ShowMessage("File saved");
             }
         }
     }

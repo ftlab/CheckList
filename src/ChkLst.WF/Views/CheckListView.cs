@@ -41,6 +41,8 @@ namespace ChkLst.WF.Views
             fluentAPI.BindCommand(_placeAboveBtn, p => p.PlaceAbove());
             fluentAPI.BindCommand(_placeBelowBtn, p => p.PlaceBelow());
             fluentAPI.BindCommand(_deleteBtn, p => p.Delete());
+            fluentAPI.BindCommand(_openBtn, p => p.Open());
+            fluentAPI.BindCommand(_saveAsBtn, p => p.SaveAs());
         }
     }
 }

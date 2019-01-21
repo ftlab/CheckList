@@ -93,6 +93,16 @@ namespace ChkLst.WF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage file {
+            get {
+                object obj = ResourceManager.GetObject("file", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage left_indent {
             get {
                 object obj = ResourceManager.GetObject("left-indent", resourceCulture);
@@ -126,6 +136,16 @@ namespace ChkLst.WF.Properties {
         internal static DevExpress.Utils.Svg.SvgImage right_indent {
             get {
                 object obj = ResourceManager.GetObject("right-indent", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage save {
+            get {
+                object obj = ResourceManager.GetObject("save", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
