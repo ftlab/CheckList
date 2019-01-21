@@ -11,7 +11,5 @@ namespace ChkLst.Core
         public string Name { get; set; }
 
         public TimeSpan TimeCost { get; set; }
-
-        
     }
 }
