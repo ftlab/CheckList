@@ -1,18 +1,18 @@
-﻿namespace ChlLst.VS
+﻿namespace ChkLst.WPF.VS
 {
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Controls;
 
     /// <summary>
-    /// Interaction logic for CheckListWindowControl.
+    /// Interaction logic for CheckListToolWindowControl.
     /// </summary>
-    public partial class CheckListWindowControl : UserControl
+    public partial class CheckListToolWindowControl : UserControl
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CheckListWindowControl"/> class.
+        /// Initializes a new instance of the <see cref="CheckListToolWindowControl"/> class.
         /// </summary>
-        public CheckListWindowControl()
+        public CheckListToolWindowControl()
         {
             this.InitializeComponent();
         }
@@ -28,7 +28,7 @@
         {
             MessageBox.Show(
                 string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
-                "CheckListWindow");
+                "CheckListToolWindow");
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="ChlLst.VS.dc94d232-d13d-4878-ab91-bf3c68195790" Version="1.0" Language="en-US" Publisher="ulyanov yuriy" />
-    <DisplayName>ChlLst.VS</DisplayName>
+    <Identity Id="ChkLst.WPF.VS.570b2cae-8aea-43e9-8146-8800ec1c095a" Version="1.0" Language="en-US" Publisher="ulyanov yuriy" />
+    <DisplayName>ChkLst.WPF.VS</DisplayName>
     <Description>Empty VSIX Project.</Description>
   </Metadata>
   <Installation>

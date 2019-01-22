@@ -13,7 +13,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Win32;
 using Task = System.Threading.Tasks.Task;
 
-namespace ChlLst.VS
+namespace ChkLst.WF.VS
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -35,20 +35,20 @@ namespace ChlLst.VS
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [ProvideToolWindow(typeof(CheckListWindow))]
-    [Guid(CheckListWindowPackage.PackageGuidString)]
+    [ProvideToolWindow(typeof(CheckListToolForm))]
+    [Guid(CheckListToolFormPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class CheckListWindowPackage : AsyncPackage
+    public sealed class CheckListToolFormPackage : AsyncPackage
     {
         /// <summary>
-        /// CheckListWindowPackage GUID string.
+        /// CheckListToolFormPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "80428c61-ead9-4690-93a8-40da05c52e07";
+        public const string PackageGuidString = "048ad16f-5899-4ad3-9e61-025f0d90277b";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CheckListWindowPackage"/> class.
+        /// Initializes a new instance of the <see cref="CheckListToolFormPackage"/> class.
         /// </summary>
-        public CheckListWindowPackage()
+        public CheckListToolFormPackage()
         {
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
@@ -70,7 +70,7 @@ namespace ChlLst.VS
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await CheckListWindowCommand.InitializeAsync(this);
+            await CheckListToolFormCommand.InitializeAsync(this);
         }
 
         #endregion

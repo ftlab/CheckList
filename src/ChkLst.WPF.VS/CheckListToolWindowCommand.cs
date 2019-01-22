@@ -7,12 +7,12 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Task = System.Threading.Tasks.Task;
 
-namespace ChlLst.VS
+namespace ChkLst.WPF.VS
 {
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class CheckListWindowCommand
+    internal sealed class CheckListToolWindowCommand
     {
         /// <summary>
         /// Command ID.
@@ -22,7 +22,7 @@ namespace ChlLst.VS
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("233e0f63-a9d1-4883-a0e4-b5bd2961e2e3");
+        public static readonly Guid CommandSet = new Guid("1b1eb35a-e1ec-4972-b44d-66cac5305100");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -30,12 +30,12 @@ namespace ChlLst.VS
         private readonly AsyncPackage package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CheckListWindowCommand"/> class.
+        /// Initializes a new instance of the <see cref="CheckListToolWindowCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
         /// <param name="commandService">Command service to add command to, not null.</param>
-        private CheckListWindowCommand(AsyncPackage package, OleMenuCommandService commandService)
+        private CheckListToolWindowCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
@@ -48,7 +48,7 @@ namespace ChlLst.VS
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static CheckListWindowCommand Instance
+        public static CheckListToolWindowCommand Instance
         {
             get;
             private set;
@@ -71,12 +71,12 @@ namespace ChlLst.VS
         /// <param name="package">Owner package, not null.</param>
         public static async Task InitializeAsync(AsyncPackage package)
         {
-            // Switch to the main thread - the call to AddCommand in CheckListWindowCommand's constructor requires
+            // Switch to the main thread - the call to AddCommand in CheckListToolWindowCommand's constructor requires
             // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
-            Instance = new CheckListWindowCommand(package, commandService);
+            Instance = new CheckListToolWindowCommand(package, commandService);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace ChlLst.VS
             // Get the instance number 0 of this tool window. This window is single instance so this instance
             // is actually the only one.
             // The last flag is set to true so that if the tool window does not exists it will be created.
-            ToolWindowPane window = this.package.FindToolWindow(typeof(CheckListWindow), 0, true);
+            ToolWindowPane window = this.package.FindToolWindow(typeof(CheckListToolWindow), 0, true);
             if ((null == window) || (null == window.Frame))
             {
                 throw new NotSupportedException("Cannot create tool window");

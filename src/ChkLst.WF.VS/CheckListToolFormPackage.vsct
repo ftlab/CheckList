@@ -22,7 +22,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidCheckListWindowPackage">
+  <Commands package="guidCheckListToolFormPackage">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -42,11 +42,11 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidCheckListWindowPackageCmdSet" id="CheckListWindowCommandId" priority="0x0100" type="Button">
+      <Button guid="guidCheckListToolFormPackageCmdSet" id="CheckListToolFormCommandId" priority="0x0100" type="Button">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1"/>
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>CheckListWindow</ButtonText>
+          <ButtonText>CheckListToolForm</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -58,20 +58,20 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\CheckListWindowCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidImages" href="Resources\CheckListToolFormCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
     </Bitmaps>
   </Commands>
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidCheckListWindowPackage" value="{80428c61-ead9-4690-93a8-40da05c52e07}" />
+    <GuidSymbol name="guidCheckListToolFormPackage" value="{048ad16f-5899-4ad3-9e61-025f0d90277b}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidCheckListWindowPackageCmdSet" value="{233e0f63-a9d1-4883-a0e4-b5bd2961e2e3}">
-      <IDSymbol name="CheckListWindowCommandId" value="0x0100" />
+    <GuidSymbol name="guidCheckListToolFormPackageCmdSet" value="{a07935ca-9eee-4b76-a89c-deb6820ed1fe}">
+      <IDSymbol name="CheckListToolFormCommandId" value="0x0100" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{ac840d96-03fa-4904-ad44-a8f6bbeb13b5}" >
+    <GuidSymbol name="guidImages" value="{f1ac59fc-3e45-474c-b5fd-4f8db66e82ab}" >
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

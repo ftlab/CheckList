@@ -1,4 +1,4 @@
-﻿namespace ChlLst.VS
+﻿namespace ChkLst.WF.VS
 {
     using System;
     using System.Runtime.InteropServices;
@@ -15,20 +15,20 @@
     /// implementation of the IVsUIElementPane interface.
     /// </para>
     /// </remarks>
-    [Guid("fb99086f-71b9-4750-a89f-f32e46356ae7")]
-    public class CheckListWindow : ToolWindowPane
+    [Guid("4be45dfa-94de-4e8d-92b6-deb1103ff880")]
+    public class CheckListToolForm : ToolWindowPane
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CheckListWindow"/> class.
+        /// Initializes a new instance of the <see cref="CheckListToolForm"/> class.
         /// </summary>
-        public CheckListWindow() : base(null)
+        public CheckListToolForm() : base(null)
         {
-            this.Caption = "CheckListWindow";
+            this.Caption = "CheckListToolForm";
 
             // This is the user control hosted by the tool window; Note that, even if this class implements IDisposable,
             // we are not calling Dispose on this object. This is because ToolWindowPane calls Dispose on
             // the object returned by the Content property.
-            this.Content = new CheckListWindowControl();
+            this.Content = new CheckListToolFormControl();
         }
     }
 }
