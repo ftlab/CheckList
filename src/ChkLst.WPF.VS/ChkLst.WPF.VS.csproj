@@ -185,6 +185,20 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChkLst.Core\ChkLst.Core.csproj">
+      <Project>{3148822d-f6ce-47bc-a88a-4355a9089f93}</Project>
+      <Name>ChkLst.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChkLst.WPF\ChkLst.WPF.csproj">
+      <Project>{71a3144a-6143-42d0-a1b4-fa33b275a04f}</Project>
+      <Name>ChkLst.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpTreeView\ICSharpCode.TreeView.csproj">
+      <Project>{ccffd25b-854f-4e46-9907-6fc697a7f78f}</Project>
+      <Name>ICSharpCode.TreeView</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
