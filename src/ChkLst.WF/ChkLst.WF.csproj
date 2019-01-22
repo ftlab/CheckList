@@ -35,6 +35,12 @@
   <PropertyGroup>
     <ApplicationIcon>icons8-todo-list-96.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ulyanov.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -101,15 +107,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ulyanov.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ChkLst.Core\ChkLst.Core.csproj">
-      <Project>{3148822d-f6ce-47bc-a88a-4355a9089f93}</Project>
-      <Name>ChkLst.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_below.svg" />
@@ -126,6 +127,13 @@
     <None Include="Resources\place_above.svg" />
     <None Include="Resources\right-indent.svg" />
     <None Include="Resources\left-indent.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChkLst.Core\ChkLst.Core.csproj">
+      <Project>{3148822d-f6ce-47bc-a88a-4355a9089f93}</Project>
+      <Name>ChkLst.Core</Name>
+      <AdditionalProperties>TargetFramework=net461</AdditionalProperties>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
