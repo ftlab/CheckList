@@ -16,11 +16,7 @@ namespace ChkLst.WF
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            WindowsFormsSettings.ForceDirectXPaint();
-            WindowsFormsSettings.EnableFormSkins();
-            WindowsFormsSettings.DefaultLookAndFeel.SetSkinStyle(SkinSvgPalette.Bezier.DarkTurquoise);
-            var fs = WindowsFormsSettings.DefaultFont.Size;
-            WindowsFormsSettings.DefaultFont = new System.Drawing.Font("Segoe UI", fs);
+            WFSettings.Init();
 
             Application.Run(new MainForm());
         }
