@@ -166,7 +166,7 @@ namespace ChkLst.Core
 
         private bool doneField;
 
-        private string timeCostField;
+        private string timeCostsField;
 
         /// <summary>
         /// XCheckItem class constructor
@@ -216,15 +216,15 @@ namespace ChkLst.Core
         }
 
         [System.Xml.Serialization.XmlAttributeAttribute(DataType = "duration")]
-        public virtual string TimeCost
+        public virtual string TimeCosts
         {
             get
             {
-                return this.timeCostField;
+                return this.timeCostsField;
             }
             set
             {
-                this.timeCostField = value;
+                this.timeCostsField = value;
             }
         }
 

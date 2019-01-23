@@ -72,7 +72,7 @@
         <xs:documentation>Исполнена</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="TimeCost" type="xs:duration" use="required">
+    <xs:attribute name="TimeCosts" type="xs:duration" use="required">
       <xs:annotation>
         <xs:documentation>Трудозатраты</xs:documentation>
       </xs:annotation>

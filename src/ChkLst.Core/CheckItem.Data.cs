@@ -11,8 +11,8 @@ namespace ChkLst.Core
             var r = new CheckItem();
             r.Name = data.Name;
             r.Done = data.Done;
-            if (string.IsNullOrEmpty(data.TimeCost) == false)
-                r.TimeCost = XmlConvert.ToTimeSpan(data.TimeCost);
+            if (string.IsNullOrEmpty(data.TimeCosts) == false)
+                r.TimeCosts = XmlConvert.ToTimeSpan(data.TimeCosts);
 
             if (data.Item != null)
             {
@@ -30,7 +30,7 @@ namespace ChkLst.Core
             var item = new XCheckItem();
             item.Done = Done;
             item.Name = Name;
-            item.TimeCost = XmlConvert.ToString(TimeCost);
+            item.TimeCosts = XmlConvert.ToString(TimeCosts);
 
             for (int i = 0; i < Count; i++)
             {
