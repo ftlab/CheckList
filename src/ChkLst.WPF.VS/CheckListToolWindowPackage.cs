@@ -3,6 +3,8 @@ using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,6 +47,8 @@ namespace ChkLst.WPF.VS
         /// </summary>
         public const string PackageGuidString = "990d0cf2-c09d-45b3-9bba-6b154d6b5ec8";
 
+        private Assembly _current;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckListToolWindowPackage"/> class.
         /// </summary>
@@ -54,6 +58,31 @@ namespace ChkLst.WPF.VS
             // any Visual Studio service because at this point the package object is created but
             // not sited yet inside Visual Studio environment. The place to do all the other
             // initialization is the Initialize method.
+
+            _current = Assembly.GetExecutingAssembly();
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+        }
+
+        private System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var assembly = args.RequestingAssembly;
+
+            if (assembly == null && args.Name != null)
+            {
+                var assemblyName = args.Name.Split(',')[0].Trim();
+
+                var fileName = Path.Combine(Path.GetDirectoryName(_current.Location), assemblyName + ".dll");
+                if (File.Exists(fileName) == false)
+                    fileName = Path.ChangeExtension(fileName, ".exe");
+
+                if (File.Exists(fileName))
+                {
+                    assembly = Assembly.LoadFrom(fileName);
+                }
+            }
+
+            return assembly;
         }
 
         #region Package Members

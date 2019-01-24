@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <g id="Layer_1" transform="translate(0, 0)">
+    <g id="Arrow1Down">
+      <path d="M14, 4L14, 18L13.3, 18L6, 18L16, 28L26, 18L18.7, 18L18, 18L18, 4L14, 4z" fill="#1177D7" id="Group_Selection_2_" class="Blue" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2, -2)">
+    <g id="AddCircled">
+      <circle cx="9" cy="9" r="7" fill="#039C23" class="Green" />
+    </g>
+  </g>
+  <g id="Layer_1" transform="translate(-2, -2)">
+    <g id="AddCircled">
+      <polygon points="14,8 10,8 10,4 8,4 8,8 4,8 4,10 8,10 8,14 10,14 10,10 14,10  " fill="#FFFFFF" class="White" />
+    </g>
+  </g>
+</svg>

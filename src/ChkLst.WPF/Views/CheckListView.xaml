@@ -1,22 +1,55 @@
 ﻿<UserControl x:Class="ChkLst.WPF.Views.CheckListView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ChkLst.WPF.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
              UseLayoutRounding="True"
              TextOptions.TextFormattingMode="Display">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <svgc:SvgImage x:Key="image"></svgc:SvgImage>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Name="mainMenu" Height="23" KeyboardNavigation.TabNavigation="None">
             <MenuItem Header="_File"></MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True" KeyboardNavigation.TabNavigation="None">
-            <Button>
-                <Image Source="/ChkLst.WPF;component/Resources/icons8-insert-row-16.png"
+            <Button ToolTip="Add below">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/add_below.svg}"
                     Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Add above">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/add_above.svg}"
+                    Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Outdent">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/left-indent.svg}"
+                    Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Indent">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/right-indent.svg}"
+                    Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Place above">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/place_above.svg}"
+                    Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Place below">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/place_below.svg}"
+                    Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Delete">
+                <Image Source="{svgc:SvgImage Source=/ChkLst.WPF;component/Resources/delete.svg}"
+                    Height="16" Width="16" />
+            </Button>
+            <Button ToolTip="Delete">
+                <Image
+                    Height="16" Width="16" Source="/ChkLst.WPF;component/Resources/copy.png" />
             </Button>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom">
@@ -25,7 +58,6 @@
             </StatusBarItem>
         </StatusBar>
         <Grid>
-            
         </Grid>
     </DockPanel>
 </UserControl>

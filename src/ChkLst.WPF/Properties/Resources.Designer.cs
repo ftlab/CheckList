@@ -61,22 +61,102 @@ namespace ChkLst.WPF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_insert_row_16 {
+        internal static byte[] add_above {
             get {
-                object obj = ResourceManager.GetObject("icons8_insert_row_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("add_above", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] add_below {
+            get {
+                object obj = ResourceManager.GetObject("add_below", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_insert_row_above_16 {
+        internal static System.Drawing.Bitmap copy {
             get {
-                object obj = ResourceManager.GetObject("icons8_insert_row_above_16", resourceCulture);
+                object obj = ResourceManager.GetObject("copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] file {
+            get {
+                object obj = ResourceManager.GetObject("file", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] left_indent {
+            get {
+                object obj = ResourceManager.GetObject("left_indent", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] place_above {
+            get {
+                object obj = ResourceManager.GetObject("place_above", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] place_below {
+            get {
+                object obj = ResourceManager.GetObject("place_below", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] right_indent {
+            get {
+                object obj = ResourceManager.GetObject("right_indent", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] save {
+            get {
+                object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
