@@ -54,8 +54,8 @@
             this._nameColumn = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this._timeCostsColumn = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this._timeEditFactory = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
-            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this._timeCostsInHoursColumn = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this._hoursEditFactory = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this._layoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this._checkListItem = new DevExpress.XtraLayout.LayoutControlItem();
             this._searchItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -66,7 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._search.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._checkListTree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._timeEditFactory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._hoursEditFactory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._layoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._checkListItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._searchItem)).BeginInit();
@@ -278,7 +278,7 @@
             this._checkListTree.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this._nameColumn,
             this._timeCostsColumn,
-            this.treeListColumn1});
+            this._timeCostsInHoursColumn});
             this._checkListTree.Cursor = System.Windows.Forms.Cursors.Default;
             this._checkListTree.DataSource = null;
             this._checkListTree.Location = new System.Drawing.Point(12, 36);
@@ -287,7 +287,7 @@
             this._checkListTree.OptionsView.ShowCheckBoxes = true;
             this._checkListTree.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this._timeEditFactory,
-            this.repositoryItemSpinEdit1});
+            this._hoursEditFactory});
             this._checkListTree.Size = new System.Drawing.Size(652, 271);
             this._checkListTree.TabIndex = 4;
             // 
@@ -307,8 +307,6 @@
             this._timeCostsColumn.FieldName = "TimeCosts";
             this._timeCostsColumn.MaxWidth = 100;
             this._timeCostsColumn.Name = "_timeCostsColumn";
-            this._timeCostsColumn.Visible = true;
-            this._timeCostsColumn.VisibleIndex = 1;
             this._timeCostsColumn.Width = 100;
             // 
             // _timeEditFactory
@@ -318,21 +316,22 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this._timeEditFactory.Name = "_timeEditFactory";
             // 
-            // treeListColumn1
+            // _timeCostsInHoursColumn
             // 
-            this.treeListColumn1.Caption = "treeListColumn1";
-            this.treeListColumn1.ColumnEdit = this.repositoryItemSpinEdit1;
-            this.treeListColumn1.FieldName = "TimeCostsInHours";
-            this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.Visible = true;
-            this.treeListColumn1.VisibleIndex = 2;
+            this._timeCostsInHoursColumn.Caption = "Time costs";
+            this._timeCostsInHoursColumn.ColumnEdit = this._hoursEditFactory;
+            this._timeCostsInHoursColumn.FieldName = "TimeCostsInHours";
+            this._timeCostsInHoursColumn.Name = "_timeCostsInHoursColumn";
+            this._timeCostsInHoursColumn.Visible = true;
+            this._timeCostsInHoursColumn.VisibleIndex = 1;
             // 
-            // repositoryItemSpinEdit1
+            // _hoursEditFactory
             // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this._hoursEditFactory.AutoHeight = false;
+            this._hoursEditFactory.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this._hoursEditFactory.Name = "_hoursEditFactory";
+            this._hoursEditFactory.Enter += new System.EventHandler(this._hoursEditFactory_Enter);
             // 
             // _layoutGroup
             // 
@@ -382,7 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._search.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._checkListTree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._timeEditFactory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._hoursEditFactory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._layoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._checkListItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._searchItem)).EndInit();
@@ -420,7 +419,7 @@
         private DevExpress.XtraLayout.LayoutControlItem _searchItem;
         private DevExpress.XtraTreeList.Columns.TreeListColumn _timeCostsColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit _timeEditFactory;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn _timeCostsInHoursColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit _hoursEditFactory;
     }
 }

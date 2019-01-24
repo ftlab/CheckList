@@ -1,5 +1,6 @@
 ﻿using ChkLst.Core;
 using ChkLst.WF.ViewModels;
+using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using System;
 
@@ -43,6 +44,12 @@ namespace ChkLst.WF.Views
             fluentAPI.BindCommand(_deleteBtn, p => p.Delete());
             fluentAPI.BindCommand(_openBtn, p => p.Open());
             fluentAPI.BindCommand(_saveAsBtn, p => p.SaveAs());
+        }
+
+        private void _hoursEditFactory_Enter(object sender, EventArgs e)
+        {
+            var edit = (SpinEdit)sender;
+            edit.SelectAll();
         }
     }
 }
