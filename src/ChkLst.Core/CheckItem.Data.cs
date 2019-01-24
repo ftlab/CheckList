@@ -28,7 +28,7 @@ namespace ChkLst.Core
         public XCheckItem GetData()
         {
             var item = new XCheckItem();
-            item.Done = Done;
+            item.Done = Done ?? false;
             item.Name = Name;
             item.TimeCosts = XmlConvert.ToString(TimeCosts);
 

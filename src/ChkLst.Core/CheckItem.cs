@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Xml;
+using System.Linq;
 
 namespace ChkLst.Core
 {
@@ -8,34 +7,75 @@ namespace ChkLst.Core
     {
         private double _timeCostsInHours;
 
-        public bool Done { get; set; }
+        private bool _done;
 
-        public string Name { get; set; }
+        private string _name;
 
-        public TimeSpan TimeCosts
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                RaiseOnPropertyChanged(nameof(Name));
+            }
+        }
+
+        public bool? Done
         {
             get
             {
-                return TimeSpan.FromHours(_timeCostsInHours);
+                bool? result = null;
+
+                if (Count > 0)
+                {
+                    if (Nodes.TrueForAll(child => child.Done == true))
+                        result = true;
+                }
+                else
+                    result = _done;
+
+                return result;
             }
             set
             {
-                TimeCostsInHours = value.TotalHours;
+                if (value.HasValue && value.Value != _done)
+                {
+                    _done = value.Value;
+                    RaiseOnPropertyChanged(nameof(Done));
+
+                    var parent = Parent;
+                    while (parent != null)
+                    {
+                        parent.RaiseOnPropertyChanged(nameof(Done));
+                        parent = parent.Parent;
+                    }
+                }
             }
+        }
+
+        public TimeSpan TimeCosts
+        {
+            get { return TimeSpan.FromHours(_timeCostsInHours); }
+            set { TimeCostsInHours = value.TotalHours; }
         }
 
         public double TimeCostsInHours
         {
             get
             {
-                return _timeCostsInHours;
+                double result = _timeCostsInHours;
+
+                if (Count > 0)
+                {
+                    result = Nodes.Sum(child => child.TimeCostsInHours);
+                }
+
+                return result;
             }
             set
             {
                 _timeCostsInHours = value;
-
-                RaiseOnPropertyChanged(nameof(TimeCostsInHours));
-                RaiseOnPropertyChanged(nameof(TimeCosts));
             }
         }
     }
