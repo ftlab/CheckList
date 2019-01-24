@@ -6,10 +6,11 @@
     <UseCodebase>true</UseCodebase>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -60,7 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Key.snk" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -189,6 +189,7 @@
     <ProjectReference Include="..\ChkLst.Core\ChkLst.Core.csproj">
       <Project>{3148822d-f6ce-47bc-a88a-4355a9089f93}</Project>
       <Name>ChkLst.Core</Name>
+      <AdditionalProperties>TargetFramework=net461</AdditionalProperties>
     </ProjectReference>
     <ProjectReference Include="..\ChkLst.WPF\ChkLst.WPF.csproj">
       <Project>{71a3144a-6143-42d0-a1b4-fa33b275a04f}</Project>
@@ -197,6 +198,7 @@
     <ProjectReference Include="..\SharpTreeView\ICSharpCode.TreeView.csproj">
       <Project>{ccffd25b-854f-4e46-9907-6fc697a7f78f}</Project>
       <Name>ICSharpCode.TreeView</Name>
+      <AdditionalProperties>TargetFramework=net461</AdditionalProperties>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
