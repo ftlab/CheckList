@@ -4,7 +4,11 @@ using System.Collections.Generic;
 
 namespace ChkLst.Core.Monadas
 {
-    public class WFRuleSet<Ctx> : ICollection<IWFRule<Ctx>>, IEnumerable<IWFRule<Ctx>>, ICollection, IEnumerable
+    public interface IWFRuleSet<Ctx> : IEnumerable<IWFRule<Ctx>>
+    {
+    }
+
+    public class WFRuleSet<Ctx> : IWFRuleSet<Ctx>, IEnumerable<IWFRule<Ctx>>
     {
         private List<IWFRule<Ctx>> _rules = new List<IWFRule<Ctx>>();
 
@@ -28,62 +32,14 @@ namespace ChkLst.Core.Monadas
             Add(rule);
         }
 
-        #region ICollection Support
-
-        int ICollection.Count => Count;
-
-        int ICollection<IWFRule<Ctx>>.Count => Count;
-
-        bool ICollection.IsSynchronized => throw new NotImplementedException();
-
-        object ICollection.SyncRoot => throw new NotImplementedException();
-
-        bool ICollection<IWFRule<Ctx>>.IsReadOnly => throw new NotImplementedException();
-
-        void ICollection<IWFRule<Ctx>>.Add(IWFRule<Ctx> item)
-        {
-            Add(item);
-        }
-
-        void ICollection<IWFRule<Ctx>>.Clear()
+        IEnumerator<IWFRule<Ctx>> IEnumerable<IWFRule<Ctx>>.GetEnumerator()
         {
             throw new NotImplementedException();
         }
-
-        bool ICollection<IWFRule<Ctx>>.Contains(IWFRule<Ctx> item)
-        {
-            throw new NotImplementedException();
-        }
-
-        void ICollection.CopyTo(Array array, int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        void ICollection<IWFRule<Ctx>>.CopyTo(IWFRule<Ctx>[] array, int arrayIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
-        #region IEnumerator Support
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return _rules.GetEnumerator();
-        }
-
-        IEnumerator<IWFRule<Ctx>> IEnumerable<IWFRule<Ctx>>.GetEnumerator()
-        {
-            return _rules.GetEnumerator();
-        }
-
-        bool ICollection<IWFRule<Ctx>>.Remove(IWFRule<Ctx> item)
-        {
             throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

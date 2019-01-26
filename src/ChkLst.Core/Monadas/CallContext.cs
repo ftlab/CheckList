@@ -1,43 +1,67 @@
 ﻿using System;
+using System.Threading;
 
 namespace ChkLst.Core.Monadas
 {
-    public class WFContext<Ctx> : CallContext<WFContext<Ctx>>
+    public class CallContext<T> : IDisposable
+        where T : CallContext<T>
     {
-        public WFContext(Ctx context) : base()
-        {
-            Context = Guard.ArgumentNotNull(context, nameof(context));
+        private static AsyncLocal<T> _local = new AsyncLocal<T>();
 
+        public static T Current
+        {
+            get
+            {
+                return _local.Value;
+            }
         }
-        public Ctx Context { get; }
-        public IWFRule<Ctx> CurrentRule { get; internal set; }
-        public IWFRuleSet<Ctx> RuleSet { get; internal set; }
-        public bool Break { get; internal set; }
+
+        private T _saved;
+
+        public CallContext()
+        {
+            _saved = Current;
+            _local.Value = Value;
+        }
+
+        public T Value { get { return (T)this; } }
 
         #region IDisposable Support
 
         private bool disposedValue = false; // To detect redundant calls
 
-
+        protected virtual void CheckDisposed(string name)
+        {
+            if (disposedValue) throw new ObjectDisposedException(name);
+        }
 
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
             {
+                _local.Value = _saved;
+
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects).
+                    DisposeManagedObjects();
                 }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-                // TODO: set large fields to null.
-
+                FreeUnmanagedResources();
                 disposedValue = true;
             }
         }
 
+        protected virtual void FreeUnmanagedResources()
+        {
+
+        }
+
+        protected virtual void DisposeManagedObjects()
+        {
+
+        }
+
         // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~WFContext() {
+        // ~CallContext() {
         //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
         //   Dispose(false);
         // }
