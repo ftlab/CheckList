@@ -76,6 +76,17 @@ namespace ChkLst.Core
             set
             {
                 _timeCostsInHours = value;
+
+                RaiseOnPropertyChanged(nameof(TimeCostsInHours));
+                RaiseOnPropertyChanged(nameof(TimeCosts));
+
+                var parent = Parent;
+                while (parent != null)
+                {
+                    parent.RaiseOnPropertyChanged(nameof(TimeCostsInHours));
+                    parent.RaiseOnPropertyChanged(nameof(TimeCosts));
+                    parent = parent.Parent;
+                }
             }
         }
     }

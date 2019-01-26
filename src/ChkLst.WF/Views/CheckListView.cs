@@ -3,10 +3,11 @@ using ChkLst.WF.ViewModels;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using System;
+using System.Windows.Forms;
 
 namespace ChkLst.WF.Views
 {
-    public partial class CheckListView : DevExpress.XtraEditors.XtraUserControl
+    public partial class CheckListView : XtraUserControl
     {
         public CheckListView()
         {
@@ -44,6 +45,31 @@ namespace ChkLst.WF.Views
             fluentAPI.BindCommand(_deleteBtn, p => p.Delete());
             fluentAPI.BindCommand(_openBtn, p => p.Open());
             fluentAPI.BindCommand(_saveAsBtn, p => p.SaveAs());
+
+            _checkListTree.NodesReloaded += _checkListTree_NodesReloaded;
+        }
+
+        private void _checkListTree_NodesReloaded(object sender, EventArgs e)
+        {
+            _checkListTree.NodesIterator.Do(node =>
+            {
+                var checkItem = node.TreeList.GetDataRecordByNode(node) as CheckItem;
+                if (checkItem != null)
+                {
+                    if (checkItem.Done == null)
+                    {
+                        node.CheckState = CheckState.Indeterminate;
+                    }
+                    else if (checkItem.Done.Value)
+                    {
+                        node.CheckState = CheckState.Checked;
+                    }
+                    else
+                    {
+                        node.CheckState = CheckState.Unchecked;
+                    }
+                }
+            });
         }
 
         private void _hoursEditFactory_Enter(object sender, EventArgs e)
